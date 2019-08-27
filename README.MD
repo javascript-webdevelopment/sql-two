@@ -10,7 +10,7 @@ A schema for our table above would look similar to this
 
 ```sql
 CREATE TABLE racers (
-    id INTEGER PRIMARY KEY,
+    racerId INTEGER PRIMARY KEY,
     name TEXT,
     age INTEGER,
     country TEXT
@@ -461,3 +461,24 @@ FROM racers
 ```
 
 Above, we alias the `name` column as `firstName`. This can become handy when we have multiple tables with the same name for some columns.
+
+## Subqueries
+
+A `subquery` is a query that is nested inside of another larger query.
+
+a subquery can be nested inside a `SELECT`, `INSERT`, `UPDATE`, `DELETE`, or `SET` statement or inside another subquery.
+
+A subqeury is usually added within the `where` clause of a statement.
+
+It's important to keep in mind that the most inner query will be executed before the outer queries.
+
+```sql
+SELECT *
+FROM racers
+WHERE racers.racerId IN ( 
+        SELECT type, color
+        FROM bikes
+        WHERE type = 'mongoose'
+    ) 
+```
+
