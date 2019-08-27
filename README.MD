@@ -448,3 +448,16 @@ JOIN bikes ON racers.racerId = bikes.bikeId;
 ```
 
 Above is the basic syntax for creating a `join` statement. We first will use a `select` statement to choose what columns we want to select data for from both of the tables, then we select the first table and the second table. We use the `ON` keyword to connect both of the tables on their primary and foreign keys.
+
+## Aliasing
+
+Aliasing can make our queries and statements a little more organized and easier to understand.
+
+`AS` is the keyword we will use to alias how we refer to something. The alias name will follow the keyword.
+
+```sql
+SELECT name AS firstName
+FROM racers
+```
+
+Above, we alias the `name` column as `firstName`. This can become handy when we have multiple tables with the same name for some columns.
