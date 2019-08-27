@@ -346,7 +346,7 @@ ALTER COLUMN team
 SET DATA TYPE VARCHAR(100);
 ```
 
-or
+We can also makew this shorter by using `shorthand syntax`. This way is shorter from the previous example.
 
 ```sql
 ALTER TABLE racers
@@ -354,7 +354,7 @@ ALTER team
 SET DATA TYPE VARCHAR(100);
 ```
 
-or
+This way is the shortest syntax we can use.
 
 ```sql
 ALTER TABLE racers
@@ -391,3 +391,27 @@ We can drop our tables, if we feel the need to remove them. Be careful doing thi
 ```sql
 DROP TABLE racers
 ```
+
+## Table Relationships
+
+A relational database is built around a model of having `relationships` between different tables to establish a way for the tables to communicate with each other.
+
+There are a three main designs that we can establish for creating a `relationship` between tables.
+
+### One to One
+
+This deisgn is where one entity can only talk to one other entity. I like to think about this like a social security number. Only one person will be associated with one SSN, it will never represent more than one person.
+
+![one to one](images/onetoone.png)
+
+### One to Many
+
+This design is where one entity can have multple relationships with other entities. I like to think about this like comments on a website. A comment is only owned by one person, this creates a `one to many` relationship. One user can have many comments.
+
+![one to many](images/ontomany.png)
+
+### Many to Many
+
+This design is where multiple entities can have a relationship with multiple entities. I like to think about this as books and authors. A book can have many authors and an author can have many books.
+
+![many to many](images/manytomany.png)
