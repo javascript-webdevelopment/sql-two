@@ -426,9 +426,25 @@ A `foreign key` will typically reference a `primary key` from another table.
 
 ```sql
 CREATE TABLE bikes (
-  id SERIAL PRIMARY KEY,
-  racer_id INTEGER REFERENCES racers(id)
+  bikeId SERIAL PRIMARY KEY,
+  racerId INTEGER REFERENCES racers(racerId),
+  type TEXT,
+  color TEXT
 )
 ```
 
 Above is thew syntax we would use to setup a foreign key in our schema for a table. We are saying that the `racer_id` column needs to have a matching value with a row's id from the racers table. This has now created that `relationship` between the two tables.
+
+## Join Statements
+
+`Joins` are one of the essential elements that help make up a relational database. 
+
+They will allow us to retrieve data from multiple tables at one time.
+
+```sql
+SELECT *
+FROM racers
+JOIN bikes ON racers.racerId = bikes.bikeId;
+```
+
+Above is the basic syntax for creating a `join` statement. We first will use a `select` statement to choose what columns we want to select data for from both of the tables, then we select the first table and the second table. We use the `ON` keyword to connect both of the tables on their primary and foreign keys.
