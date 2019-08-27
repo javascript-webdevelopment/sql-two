@@ -482,3 +482,10 @@ WHERE racers.racerId IN (
     ) 
 ```
 
+## Distinct
+
+`DISTINCT` is the keyword we can use when we don't want any duplications of datasets.
+
+```sql
+SELECT DISTINCT country FROM racers;
+```
