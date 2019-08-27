@@ -408,10 +408,27 @@ This deisgn is where one entity can only talk to one other entity. I like to thi
 
 This design is where one entity can have multple relationships with other entities. I like to think about this like comments on a website. A comment is only owned by one person, this creates a `one to many` relationship. One user can have many comments.
 
-![one to many](images/ontomany.png)
+![one to many](images/onetomany.png)
 
 ### Many to Many
 
 This design is where multiple entities can have a relationship with multiple entities. I like to think about this as books and authors. A book can have many authors and an author can have many books.
 
 ![many to many](images/manytomany.png)
+
+## Foreign Keys
+
+Now that we have talked about some of the relational design patterns, you are probably wondering how we actually set this relationship up? This is where `foreign keys` come into play.
+
+A `foreign key` will set a constraint to the data that is inserted into the row. The only way it data can be inserted is if a row has a column value that matches with another specific value from another table.
+
+A `foreign key` will typically reference a `primary key` from another table.
+
+```sql
+CREATE TABLE bikes (
+  id SERIAL PRIMARY KEY,
+  racer_id INTEGER REFERENCES racers(id)
+)
+```
+
+Above is thew syntax we would use to setup a foreign key in our schema for a table. We are saying that the `racer_id` column needs to have a matching value with a row's id from the racers table. This has now created that `relationship` between the two tables.
