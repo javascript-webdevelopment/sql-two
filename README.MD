@@ -10,7 +10,7 @@ A schema for our table above would look similar to this
 
 ```sql
 CREATE TABLE racers (
-    racerId INTEGER PRIMARY KEY,
+    racerId SERIAL PRIMARY KEY,
     name TEXT,
     age INTEGER,
     country TEXT
@@ -475,11 +475,12 @@ It's important to keep in mind that the most inner query will be executed before
 ```sql
 SELECT *
 FROM racers
-WHERE racers.racerId IN ( 
-        SELECT type, color
-        FROM bikes
-        WHERE type = 'mongoose'
-    ) 
+WHERE racerid IN (
+	SELECT racerid
+  FROM bikes
+  WHERE type = 'fezzari'
+  AND age >= 25
+)
 ```
 
 ## Distinct
